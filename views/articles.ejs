@@ -8,9 +8,9 @@
 </head>
 <body>
 
-
+  <h1><%= articles.source %></h1>
   <ul class="results_by_source">
-  <% articles.forEach((article) => {          %>
+  <% articles.articles.forEach((article) => {          %>
      <li class="article">
      <h4><%= article.title %><h4>
      <p><%= article.description %></p>

@@ -43,7 +43,7 @@ function getSources(req, res, next) {
   fetch(`https://newsapi.org/v1/sources?language=en&category=${req.query.category}`)
    .then (r => r.json())
   .then((result) => {
-    res.sourcesByCategory = result;
+    res.sourcesByCategory = result.sources;
     next();
   })
   .catch((err) => {
@@ -57,7 +57,7 @@ function getArticlesForSource(req, res, next) {
   fetch(`${API_URL}source=${req.params.source}&apiKey=${API_KEY}`)
   .then (r => r.json())
   .then((result) => {
-    res.articles = result.articles;
+    res.articles = result;
     next();
   })
   .catch((err) => {

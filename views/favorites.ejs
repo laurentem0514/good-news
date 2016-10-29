@@ -8,5 +8,16 @@
 </head>
 <body>
   <h1>favorites</h1>
+  <div class="favorites">
+   <h3><%# favorites.length %> Favorites</h3>
+        <ul class="favorites">
+          <% for (let i = 0; i < favorites.length; i++) { %>
+            <li class="">
+              <img src="<%= favorites[i].logo %>" alt=""/>
+              <h4><%= favorites[i].name %></h4>
+            </li>
+          <% }; %>
+        </ul>
+</div>
 </body>
 </html>

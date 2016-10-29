@@ -1,6 +1,6 @@
 <div>
       <ul class="results_by_source">
-  <% sourcesByCategory.sources.forEach((source) => {          %>
+  <% sourcesByCategory.forEach((source) => {          %>
      <li class="source">
      <h4>Source: <%= source.name %><h4>
      <p>Description: <%= source.description %></p>
@@ -8,6 +8,12 @@
      <img src="<%= source.urlsToLogos.small %>" alt=""/>
      <p>Country: <%= source.country %></p>
      </li>
+      <form class="save-favorites" action="/favorites" method="post">
+       <input type="hidden" name="favorite[name]" value="<%= source.name %>">
+       <input type="hidden" name="favorite[logo]" value="<%= source.urlsToLogos.small %>">
+        <input type="hidden" name="favorite[id]" value="<%= source.id %>">
+       <input type="submit" value="Save Source To Favorites">
+      </form>
   <% }); %>
   <ul>
 </div>
