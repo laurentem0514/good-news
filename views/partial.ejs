@@ -1,0 +1,13 @@
+<div>
+      <ul class="results_by_source">
+  <% sourcesByCategory.sources.forEach((source) => {          %>
+     <li class="source">
+     <h4>Source: <%= source.name %><h4>
+     <p>Description: <%= source.description %></p>
+     <a href="/sources/<%= source.id %>/articles">View Articles</a>
+     <img src="<%= source.urlsToLogos.small %>" alt=""/>
+     <p>Country: <%= source.country %></p>
+     </li>
+  <% }); %>
+  <ul>
+</div>

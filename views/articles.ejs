@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
-<!-- need for each loop to display results -->
-  <ul class="results">
-  <% articles.articles.forEach((article) => {          %>
-     <li>
+
+
+  <ul class="results_by_source">
+  <% articles.forEach((article) => {          %>
+     <li class="article">
      <h4><%= article.title %><h4>
      <p><%= article.description %></p>
-     <a href="<%= article.url %>" title="">Read full article</a>
-     <img src="<%= article.urlToImage %>" alt=""/>
+     <a href="<%= article.url %>" target="_blank">Read full article</a>
+     <img src="<%= article.urlToImage %>" alt="<%= article.title %>"/>
      <p><%= article.publishedAt %></p>
      </li>
-
   <% }); %>
   <ul>
+
 
 </body>
 </html>
