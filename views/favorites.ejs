@@ -15,6 +15,9 @@
             <li class="">
               <img src="<%= favorites[i].logo %>" alt=""/>
               <h4><%= favorites[i].name %></h4>
+               <form class="delete-favorites" action="/favorites/<%= favorites[i]._id %>?_method=DELETE" method="post">
+                <input type="submit" value="Delete">
+              </form>
             </li>
           <% }; %>
         </ul>

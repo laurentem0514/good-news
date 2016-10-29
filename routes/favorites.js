@@ -12,5 +12,10 @@ router.post('/', dbService.saveFavorites, (req, res) => {
   res.redirect('/');
 });
 
+router.delete('/:id', dbService.deleteFavorite, (req, res) => {
+  res.redirect('/');
+});
+
+
 
 module.exports = router;

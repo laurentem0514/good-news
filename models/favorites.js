@@ -1,10 +1,10 @@
 const { MongoClient } = require('mongodb');
 const { ObjectID } = require('mongodb');
 
-// do your db stuff here
+//this code is based off of the itunes crud lab
 const dbConnection = 'mongodb://localhost:27017/newsSources';
 
-//
+//saves favorite to collection in db
  function saveFavorites(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
     if (err) return next(err);
@@ -22,7 +22,7 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
   return false;
  }
 
-
+//retrieves collection of favorites from db for display
  function getFavorite(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
     if (err) return next(err);
@@ -43,27 +43,27 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
   return false;
 }
 
+//will delete document from collection
+ function deleteFavorite(req, res, next) {
+  MongoClient.connect(dbConnection, (err, db) => {
+    if (err) return next(err);
 
-//  function deleteFavorite(req, res, next) {
-//   MongoClient.connect(dbConnection, (err, db) => {
-//     if (err) return next(err);
+    db.collection('favorites')
+      .remove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
+        if (removeErr) return next(removeErr);
 
-//     db.collection('favorites')
-//       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
-//         if (removeErr) return next(removeErr);
-
-//         res.removed = doc;
-//         db.close();
-//         return next();
-//       });
-//     return false;
-//   });
-//   return false;
-// }
+        res.removed = doc;
+        db.close();
+        return next();
+      });
+    return false;
+  });
+  return false;
+}
 
 
 module.exports = {
   saveFavorites,
   getFavorite,
- // deleteFavorite,
+  deleteFavorite,
  };
