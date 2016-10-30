@@ -1,13 +1,11 @@
-const { MongoClient } = require('mongodb');
 const { ObjectID } = require('mongodb');
+const { getDB }    = require('../lib/dbConnect.js');
 
-//this code is based off of the itunes crud lab
-const dbConnection = 'mongodb://localhost:27017/newsSources';
 
 //saves favorite to collection in db
  function saveFavorites(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
-    if (err) return next(err);
+  getDB().then((db, err) => {
+   if (err) return next(err);
     console.log('favorite is: ', req.body.favorite);
     db.collection('favorites')
       .insert(req.body.favorite, (insertErr, result) =>{
@@ -24,9 +22,8 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
 
 //retrieves collection of favorites from db for display
  function getFavorites(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
+  getDB().then((db, err) => {
     if (err) return next(err);
-
     db.collection('favorites')
       .find({})
       .sort({ Title: 1 })
@@ -38,6 +35,7 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
         db.close();
         return next();
       });
+
     return false;
   });
   return false;
@@ -45,7 +43,7 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
 
 //will delete document from collection
  function deleteFavorite(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
+  getDB().then((db, err) => {
     if (err) return next(err);
 
     db.collection('favorites')

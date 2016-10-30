@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const dbService = require('../models/favorites');
+const router     = require('express').Router();
+const dbService  = require('../models/favorites');
 
 
 router.get('/', dbService.getFavorites, (req, res) => {

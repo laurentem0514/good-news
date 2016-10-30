@@ -1,0 +1,10 @@
+<div>
+  <a href="/">Home</a>
+  <% if(user) { %>
+    <span>Welcome, <%= user.username %></span>
+  <%} else { %>
+    <a href="/signin" title="">Log In</a>
+    <a href="/register" title="">Register</a>
+  <% }%>
+
+</div>

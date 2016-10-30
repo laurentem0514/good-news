@@ -9,16 +9,16 @@
   <h1>favorites</h1>
   <div class="favorites">
    <h3><%# favorites.length %> Favorites</h3>
-        <ul class="favorites">
+
           <% for (let i = 0; i < favorites.length; i++) { %>
-            <li class="">
+            <div class="">
               <img src="<%= favorites[i].logo %>" alt=""/>
               <h4><%= favorites[i].name %></h4>
-              <button class="delete" data-id="<%= favorites[i]._id %>">Delete Ajax</button>
-            </li>
+              <button class="delete btn btn-primary" data-id="<%= favorites[i]._id %>">Remove</button>
+            </div>
           <% }; %>
-        </ul>
+
   </div>
-  <a href="/">Home</a>
+
 </body>
 </html>
