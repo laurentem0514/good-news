@@ -1,0 +1,25 @@
+
+      <% sourcesByCategory.forEach((source) => {         %>
+      <div class="source">
+       <img src="<%= source.urlsToLogos.small %>" alt=""/>
+       <h4> <%= source.name %></h4>
+       <p> <%= source.description %></p>
+       <a href="/sources/<%= source.id %>/articles">View Articles</a>
+       <p>Country: <%= source.country.toUpperCase() %></p>
+
+        <input type="hidden" name="favorite[name]" value="<%= source.name %>">
+        <input type="hidden" name="favorite[logo]" value="<%= source.urlsToLogos.small %>">
+        <input type="hidden" name="favorite[id]" value="<%= source.id %>">
+
+        <% if(!source.isFavorite) {    %>
+          <button class="btn btn-primary">
+          <span class="glyphicon glyphicon-plus-sign"></span> Add to Favorites
+         </button>
+        <% } %>
+
+         <span class="label label-success <%= source.isFavorite ? '' : 'hidden' %>">
+            Favorited
+         </span>
+      </div>
+      <% }); %>
+

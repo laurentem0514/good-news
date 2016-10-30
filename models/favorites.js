@@ -23,7 +23,7 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
  }
 
 //retrieves collection of favorites from db for display
- function getFavorite(req, res, next) {
+ function getFavorites(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
     if (err) return next(err);
 
@@ -64,6 +64,6 @@ const dbConnection = 'mongodb://localhost:27017/newsSources';
 
 module.exports = {
   saveFavorites,
-  getFavorite,
+  getFavorites,
   deleteFavorite,
  };

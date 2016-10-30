@@ -1,4 +1,35 @@
-.article img {
-  width: 300px;
-
+h1{
+  color: red;
+  font-family: 'Diplomata SC', cursive;
 }
+
+.dropdown {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.sources {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+    .sources div {
+      width: 300px;
+      margin: 0 10px 20px;
+    }
+
+.source img{
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

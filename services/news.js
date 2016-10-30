@@ -3,7 +3,6 @@ const fetch = require('node-fetch');
 const API_URL = 'https://newsapi.org/v1/articles?'
 const API_KEY = process.env.NEWS_KEY;
 
-
 // function getLatestNews(req, res, next) {
 //   fetch('https://newsapi.org/v1/sources?')
 //   .then (r => r.json())
@@ -17,33 +16,24 @@ const API_KEY = process.env.NEWS_KEY;
 //   })
 // }
 
- // function findNews(req, res, next){
- //    const bySource = req.query.sourceName ? true: false;
- //    const url = bySource ? `${API_URL}source=${req.query.sourceName}&apiKey=${API_KEY}`
-
- //                          : `https://newsapi.org/v1/sources?language=en&category=${req.query.category}`;
- //          fetch(url)
- //          .then (r => r.json())
- //          .then((result) => {
- //            if (bySource){
- //             res.articlesBySource = result;
- //          } else {
- //             res.articlesByCategory = result;
- //          }
- //            next();
- //          })
- //          .catch((err) => {
- //            res.err = err;
- //            next();
- //          })
- //      }
-
  //function that lets user find news source ssearch by category
 function getSources(req, res, next) {
+  const favoritesIds = res.favorites.map((favorite) => {
+      return favorite.id;
+    });
+
   fetch(`https://newsapi.org/v1/sources?language=en&category=${req.query.category}`)
    .then (r => r.json())
-  .then((result) => {
-    res.sourcesByCategory = result.sources;
+   .then((result) => {
+    res.sourcesByCategory = result.sources.map((source) => {
+       const model = {
+          isFavorite: favoritesIds.indexOf(source.id) > -1
+       };
+       for (let prop in source) {
+         model[prop] = source[prop];
+       }
+       return model;
+    });
     next();
   })
   .catch((err) => {
@@ -71,7 +61,6 @@ function getArticlesForSource(req, res, next) {
 
 module.exports = {
         //getLatestNews,
-        //findNews,
         getSources,
         getArticlesForSource,
 
