@@ -2,6 +2,9 @@
   <a href="/">Home</a>
   <% if(user) { %>
     <span>Welcome, <%= user.username %></span>
+    <form action="/logout">
+      <button>Logout</button>
+    </form>
   <%} else { %>
     <a href="/signin" title="">Log In</a>
     <a href="/register" title="">Register</a>

@@ -1,10 +1,14 @@
 const router     = require('express').Router();
+const auth       = require('../lib/auth');
 const dbService  = require('../models/favorites');
+const newsService   = require('../services/news');
 
 
-router.get('/', dbService.getFavorites, (req, res) => {
+router.get('/', auth.authenticate, dbService.getFavorites, newsService.getArticlesForFavorites, (req, res) => {
   res.render('favorites/index', {
-    favorites: res.favorites
+    favorites: res.favorites,
+    favoritesExtended: res.favoritesExtended,
+    user: res.user
   });
 });
 

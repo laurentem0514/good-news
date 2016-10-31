@@ -56,6 +56,28 @@ function getArticlesForSource(req, res, next) {
   })
 }
 
+//function that lets user search by source name
+function getArticlesForFavorites(req, res, next) {
+  res.favoritesExtended = res.favorites.map((favorite) =>{
+     const fave = {};
+
+     for (prop in favorite){
+       fave[prop] = favorite[prop];
+     }
+
+     fave.articlesApiUrl = `${API_URL}source=${fave.id}&apiKey=${API_KEY}`;
+     fave.articlesUrl = `/sources/${fave.id}/articles`;
+
+     return fave;
+  });
+
+  console.log('Favorites extended: ', res.favoritesExtended);
+
+  next();
+
+
+}
+
 
 
 
@@ -63,5 +85,6 @@ module.exports = {
         //getLatestNews,
         getSources,
         getArticlesForSource,
+        getArticlesForFavorites
 
 };

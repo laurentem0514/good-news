@@ -1,9 +1,11 @@
 const router       = require('express').Router();
+const auth         = require('../lib/auth');
 const newsService  = require('../services/news');
 const favorites    = require('../models/favorites');
-const auth         = require('../lib/auth');
+
 
 router.get('/', auth.authenticate, (req, res) => {
+  console.log('Home view with user: ', JSON.stringify(res.user));
   res.render('index', {
     user: res.user
   })

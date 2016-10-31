@@ -21,7 +21,9 @@ h1{
     height: 50px;
 }
 
-
+.favorite .article img {
+  width: 300px;
+}
 
 
 

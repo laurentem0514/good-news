@@ -22,10 +22,12 @@ const { getDB }    = require('../lib/dbConnect.js');
 
 //retrieves collection of favorites from db for display
  function getFavorites(req, res, next) {
+  let userId = res.user._id || -1;
+  console.log('favorites query for user: ', userId);
   getDB().then((db, err) => {
     if (err) return next(err);
     db.collection('favorites')
-      .find({})
+      .find({ "userId": userId.toString() })
       .sort({ Title: 1 })
       .toArray((arrayError, data) => {
         if (arrayError) return next(arrayError);

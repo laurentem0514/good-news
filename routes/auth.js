@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const auth = require('../lib/auth');
-const user = require('../models/user');
+const router  = require('express').Router();
+const auth    = require('../lib/auth');
+const user    = require('../models/user');
 
 router.get('/register', (req, res) => {
   res.render('auth/register');
@@ -15,7 +15,13 @@ router.post('/register', user.createUser, auth.logIn, (req, res) => {
 });
 
 router.post('/signin', auth.logIn, (req, res) => {
-  res.redirect('/favorites');
+  res.redirect('/');
+});
+
+// Logout by assigning null to the userId in the session
+router.get('/logout', (req, res) => {
+  req.session.userId = null;
+  res.redirect('/');
 });
 
 

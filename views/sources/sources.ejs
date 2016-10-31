@@ -6,7 +6,7 @@
        <p> <%= source.description %></p>
        <a href="/sources/<%= source.id %>/articles">View Articles</a>
        <p>Country: <%= source.country.toUpperCase() %></p>
-
+        <input type="hidden" name="favorite[userId]" value="<%= user._id %>">
         <input type="hidden" name="favorite[name]" value="<%= source.name %>">
         <input type="hidden" name="favorite[logo]" value="<%= source.urlsToLogos.small %>">
         <input type="hidden" name="favorite[id]" value="<%= source.id %>">
