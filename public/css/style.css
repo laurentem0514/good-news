@@ -85,7 +85,17 @@
 
 
 
+.signin {
+  margin: 0 auto;
+  width: 30vh;
+  height: 30vh;
+  text-align: center;
+}
 
+.signin input {
+  padding: 10px;
+  margin: 5px;
+}
 
 
 

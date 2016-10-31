@@ -10,11 +10,15 @@
 
 <body>
 
-  <form action="/signin" method="post">
-    <input type="text" name="user[username]" placeholder="Your Username">
-    <input type="password" name="user[password]" placeholder="Password">
-    <button class="btn btn-primary">Submit</button>
-  </form>
-  <a href="/register" title="">Register</a>
+  <div class="signin">
+    <img src="/images/signin-squid.png" alt="squid">
+    <form action="/signin" method="post">
+      <input type="text" name="user[username]" placeholder="Your Username">
+      <input type="password" name="user[password]" placeholder="Password">
+      <button class="btn btn-primary">Submit</button>
+    </form>
+    <a href="/register" title="">Register</a>
+  </div>
+
 </body>
 </html>
