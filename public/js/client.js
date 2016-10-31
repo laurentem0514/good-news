@@ -62,7 +62,7 @@ $(function() {
 
           if (json.articles){
             // get top 3 articles
-            let articles = json.articles.splice(0,3);
+            let articles = json.articles.splice(0,4);
             for (let i = 0; i < articles.length;i++){
               let article = articles[i];
               let div = $('<div class="article"></div>');

@@ -6,6 +6,7 @@
 </head>
 
 <body>
+  <div class="landing">
   <% include ../shared/header %>
   <a id="mynews" href="/favorites">View My Newspaper</a>
 
@@ -15,7 +16,7 @@
     <ul class="results_by_source">
     <% articles.articles.forEach((article) => {          %>
        <li class="article">
-       <h4><%= article.title %><h4>
+       <h4><%= article.title %></h4>
        <p><%= article.description %></p>
        <a href="<%= article.url %>" target="_blank">Read full article</a>
        <img src="<%= article.urlToImage %>" alt="<%= article.title %>"/>
@@ -23,6 +24,7 @@
        </li>
     <% }); %>
     </ul>
+  </div>
   </div>
 
 

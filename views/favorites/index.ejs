@@ -6,22 +6,24 @@
 
 </head>
 <body>
+  <div class="landing">
   <% include ../shared/header %>
-  <h1>My Newspaper</h1>
-  <div class="favorites">
-   <h3><%# favorites.length %></h3>
+  <div class="favs">
+    <h1>My Newspaper</h1>
+    <div class="favorites">
+     <h3><%# favorites.length %></h3>
 
-   <% for (let i = 0; i < favoritesExtended.length; i++) { %>
-      <div class="favorite">
-        <img src="<%= favoritesExtended[i].logo %>" alt=""/>
-        <h4><%= favoritesExtended[i].name %></h4>
-        <input type="hidden" name="articlesApiUrl" value="<%= favoritesExtended[i].articlesApiUrl %>">
-        <a href="<%= favoritesExtended[i].articlesUrl %>">View articles</a>
-        <div class="articles"></div>
-        <button class="delete btn btn-primary" data-id="<%= favoritesExtended[i]._id %>">Remove</button>
-      </div>
-    <% }; %>
+     <% for (let i = 0; i < favoritesExtended.length; i++) { %>
+        <div class="favorite">
+          <img src="<%= favoritesExtended[i].logo %>" alt=""/>
+          <input type="hidden" name="articlesApiUrl" value="<%= favoritesExtended[i].articlesApiUrl %>">
+          <a href="<%= favoritesExtended[i].articlesUrl %>">View all articles</a>
+          <div class="articles"></div>
+          <button class="delete btn btn-primary" data-id="<%= favoritesExtended[i]._id %>">Remove</button>
+        </div>
+      <% }; %>
+    </div>
   </div>
-
+</div>
 </body>
 </html>
