@@ -4,14 +4,16 @@
   <title>Register</title>
   <% include ../shared/head %>
 </head>
-<body>
+<body id="signin">
 
-  <form action="/register" method="post">
-    <input type="text" name="user[username]" placeholder="Username">
-    <input type="email" name="user[email]" placeholder="Your Email Address">
-    <input type="password" name="user[password]" placeholder="Password">
-    <button class="btn btn-primary">Submit</button>
-  </form>
-
+  <div class="signin">
+    <img src="/images/signin-squid.png" alt="squid">
+    <form action="/register" method="post">
+      <input type="text" name="user[username]" placeholder="Username">
+      <input type="email" name="user[email]" placeholder="Your Email Address">
+      <input type="password" name="user[password]" placeholder="Password">
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
