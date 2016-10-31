@@ -6,33 +6,34 @@
 </head>
 
 <body>
-  <% include shared/header %>
-  <header id="header" class="">
-    <h1>I Have Good News</h1>
-    <a href="/favorites">My Newspaper</a>
-  </header>
+  <div class="landing">
+    <% include shared/header %>
+    <header id="header" class="">
+      <h1>Good News</h1>
+      <a href="/favorites">View My Newspaper</a>
+    </header>
 
 
-  <div class="dropdown">
-    <h3>What kind of news do you want to read?</h3>
-    <h3>Select a category to get started</h3>
-     <select name="category">
-        <option value="" selected>View All</option>
-        <option value="general">General </option>
-        <option value="technology">Technology</option>
-        <option value="sport">Sports</option>
-        <option value="business">Business</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="gaming">Gaming</option>
-        <option value="music">Music</option>
-        <option value="science-and-nature">Science and Nature</option>
-      </select>
-      <button id="search" class="btn btn-primary">
-        <span class="glyphicon glyphicon-search"></span> Search
-      </button>
+    <div class="dropdown">
+      <h3>What kind of news do you want to read?</h3>
+      <h3>Select a category to get started</h3>
+       <select name="category">
+          <option value="" selected>View All</option>
+          <option value="general">General </option>
+          <option value="technology">Technology</option>
+          <option value="sport">Sports</option>
+          <option value="business">Business</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="gaming">Gaming</option>
+          <option value="music">Music</option>
+          <option value="science-and-nature">Science and Nature</option>
+        </select>
+        <button id="search" class="btn btn-primary">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+
+    <div class="sources"></div>
   </div>
-
-  <div class="sources"></div>
-
 </body>
 </html>

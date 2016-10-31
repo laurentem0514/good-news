@@ -68,6 +68,7 @@ $(function() {
               let div = $('<div class="article"></div>');
               div.append($('<h3>'+  article.title + '<h3>'));
               div.append($('<img src="'+  article.urlToImage + '" alt="'+  article.title + '">'))
+              div.append($('<a href="' + article.url + '" target="_blank"> Read Full Article </a>' ))
               $(favorite).find('.articles').append(div);
             }
 

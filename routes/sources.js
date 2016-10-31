@@ -5,7 +5,6 @@ const favorites     = require('../models/favorites');
 
 
 router.get('/ajax', auth.authenticate, favorites.getFavorites, newsService.getSources, (req,res) =>{
-console.log('ajax-source user: ', res.user);
  res.render('sources/sources', {
   sourcesByCategory: res.sourcesByCategory,
   user: res.user

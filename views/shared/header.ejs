@@ -1,13 +1,12 @@
-<div>
+<div class="shared-header">
   <a href="/">Home</a>
   <% if(user) { %>
     <span>Welcome, <%= user.username %></span>
     <form action="/logout">
-      <button>Logout</button>
+      <button class="btn btn-primary">Logout</button>
     </form>
   <%} else { %>
     <a href="/signin" title="">Log In</a>
     <a href="/register" title="">Register</a>
   <% }%>
-
 </div>

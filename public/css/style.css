@@ -1,7 +1,19 @@
-h1{
-  color: red;
-  font-family: 'Diplomata SC', cursive;
+.landing {
+  background-image: url('/images/good_news_head.jpg');
 }
+
+#header {
+  text-align: center;
+}
+
+
+#header h1 {
+  color: #161d28;
+  font-family: 'Diplomata SC', cursive;
+  font-size: 50px;
+  text-align: center;
+}
+
 
 .dropdown {
   font-family: 'Source Sans Pro', sans-serif;
@@ -10,6 +22,7 @@ h1{
 .sources {
   display: flex;
   flex-flow: row wrap;
+  background-color: #ededed;
 }
 
     .sources div {
@@ -17,9 +30,54 @@ h1{
       margin: 0 10px 20px;
     }
 
-.source img{
+.source img {
     height: 50px;
 }
+
+
+
+.articles {
+  background-color: #ededed;
+}
+  .articles ul{
+    list-style: none;
+  }
+
+  .articles img {
+    width: 300px;
+  }
+  .articles h1 {
+  color: #161d28;
+  font-family: 'Diplomata SC', cursive;
+  font-size: 50px;
+  text-align: center;
+}
+  .articles h2{
+    text-align: center;
+  }
+
+.results_by_source {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.articles .article {
+  border: solid 1px black;
+  width: 42%;
+  margin: 2%;
+  text-align: center;
+
+}
+
+.articles .article p {
+  font-style: italic;
+  font-size: medium;
+}
+
+
+  #mynews {
+    float: right;
+  }
 
 .favorite .article img {
   width: 300px;

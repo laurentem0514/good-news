@@ -3,25 +3,28 @@
 <head>
   <title>Articles</title>
   <% include ../shared/head %>
-
 </head>
+
 <body>
   <% include ../shared/header %>
+  <a id="mynews" href="/favorites">View My Newspaper</a>
 
-  <h1><%= articles.source %></h1>
-  <ul class="results_by_source">
-  <% articles.articles.forEach((article) => {          %>
-     <li class="article">
-     <h4><%= article.title %><h4>
-     <p><%= article.description %></p>
-     <a href="<%= article.url %>" target="_blank">Read full article</a>
-     <img src="<%= article.urlToImage %>" alt="<%= article.title %>"/>
-     <p><%= article.publishedAt %></p>
-     </li>
-  <% }); %>
-  <ul>
+  <div class="articles">
+    <h1><%= articles.source %></h1>
+    <h2>Latest News</h2>
+    <ul class="results_by_source">
+    <% articles.articles.forEach((article) => {          %>
+       <li class="article">
+       <h4><%= article.title %><h4>
+       <p><%= article.description %></p>
+       <a href="<%= article.url %>" target="_blank">Read full article</a>
+       <img src="<%= article.urlToImage %>" alt="<%= article.title %>"/>
+       <p><%= article.publishedAt %></p>
+       </li>
+    <% }); %>
+    </ul>
+  </div>
 
-  <a href="/favorites">My Newspaper</a>
 
 
 </body>
