@@ -26,14 +26,14 @@ $(function() {
     }
   }
 
-//gets values from html to submit for favorites
+//gets values from html to submit for properties for favorites object
   const saveFavorite = function(){
-    const button = $(this);
+    const button    = $(this);
     const container = button.parent();
-    const id = container.find('input[name=favorite\\[id\\]]').val();
-    const name = container.find('input[name=favorite\\[name\\]]').val();
-    const logo = container.find('input[name=favorite\\[logo\\]]').val();
-    const userId = container.find('input[name=favorite\\[userId\\]]').val();
+    const id        = container.find('input[name=favorite\\[id\\]]').val();
+    const name      = container.find('input[name=favorite\\[name\\]]').val();
+    const logo      = container.find('input[name=favorite\\[logo\\]]').val();
+    const userId    = container.find('input[name=favorite\\[userId\\]]').val();
 
       $.ajax({
          url: '/favorites',
@@ -54,7 +54,7 @@ $(function() {
       });
   }
 
-  //this function loads 4 latest news articles for user's favorite sources
+  //this function loads 4 latest news articles for user's favorite sources to favorites view
   const loadArticles = () => {
      $('.favorite').each((index, favorite) => {
         const url = $(favorite).find("input[name='articlesApiUrl']").val();
@@ -78,6 +78,7 @@ $(function() {
      });
   };
 
+//event listeners for functions above
   $('#search').on('click', getSources);
   $('.delete').on('click', deleteFavorite);
 
