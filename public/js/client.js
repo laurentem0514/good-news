@@ -78,8 +78,10 @@ $(function() {
      });
   };
 
-//event listeners for functions above
+//event listener to load sources on landing page
   $('#search').on('click', getSources);
+
+//event listener to delete a source from favorites
   $('.delete').on('click', deleteFavorite);
 
   loadArticles();
