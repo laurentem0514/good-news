@@ -1,5 +1,7 @@
+//code accredited to Bobby King and Rafa Pacas
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 /* eslint no-param-reassign: ["error", { "props": false }] */
+//this code is from user_auth_itunes
 
 const { ObjectID } = require('mongodb');
 const { getDB }    = require('../lib/dbConnect.js');

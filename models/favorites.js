@@ -6,7 +6,6 @@ const { getDB }    = require('../lib/dbConnect.js');
  function saveFavorites(req, res, next) {
   getDB().then((db, err) => {
    if (err) return next(err);
-    console.log('favorite is: ', req.body.favorite);
     db.collection('favorites')
       .insert(req.body.favorite, (insertErr, result) =>{
         if (insertErr) return next(insertErr);
@@ -20,10 +19,9 @@ const { getDB }    = require('../lib/dbConnect.js');
   return false;
  }
 
-//retrieves collection of favorites from db for display
+//retrieves collection of favorites for a user from db for display
  function getFavorites(req, res, next) {
   let userId = res.user._id || -1;
-  console.log('favorites query for user: ', userId);
   getDB().then((db, err) => {
     if (err) return next(err);
     db.collection('favorites')

@@ -15,10 +15,20 @@
     <form action="/signin" method="post">
       <input type="text" name="user[username]" placeholder="Your Username">
       <input type="password" name="user[password]" placeholder="Password">
-      <button class="btn btn-primary">Submit</button>
+      <div>
+       <button class="btn btn-primary">Submit</button>
+      </div>
     </form>
     <a href="/register" title="">Register</a>
+    <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+      <%= errorMessage %>
+      </div>
+    </div>
+   <% } %>
   </div>
+
 
 </body>
 </html>

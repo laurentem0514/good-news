@@ -46,6 +46,7 @@ $(function() {
             userId: userId,
           },
          },
+         //if favorited, hide option to avoid duplicates
         success: (result) => {
           button.hide();
           container.find('.label').removeClass('hidden');
@@ -54,14 +55,14 @@ $(function() {
     }
   }
 
+  //this function loads 4 latest news articles for user's favorite sources
   const loadArticles = () => {
      $('.favorite').each((index, favorite) => {
         const url = $(favorite).find("input[name='articlesApiUrl']").val();
 
         $.getJSON(url, (json) => {
-
           if (json.articles){
-            // get top 3 articles
+            // get top 4 articles
             let articles = json.articles.splice(0,4);
             for (let i = 0; i < articles.length;i++){
               let article = articles[i];
@@ -71,13 +72,10 @@ $(function() {
               div.append($('<a href="' + article.url + '" target="_blank"> Read Full Article </a>' ))
               $(favorite).find('.articles').append(div);
             }
-
-         }
+          }
         });
      });
   };
-
-
 
   $('#search').on('click', getSources);
   $('.delete').on('click', deleteFavorite);
