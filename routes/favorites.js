@@ -12,6 +12,7 @@ router.get('/', auth.authenticate, dbService.getFavorites, newsService.getArticl
   });
 });
 
+//this saves object from the req to the db
 router.post('/', dbService.saveFavorites, (req, res) => {
   res.sendStatus(200);
 });
@@ -23,3 +24,4 @@ router.delete('/:id', dbService.deleteFavorite, (req, res) => {
 
 
 module.exports = router;
+

@@ -26,7 +26,9 @@ $(function() {
     }
   }
 
+
 //gets values from html to submit for properties for favorites object
+//got the idea from http://stackoverflow.com/questions/33132459/send-data-back-to-node-js-server-from-front-end
   const saveFavorite = function(){
     const button    = $(this);
     const container = button.parent();
