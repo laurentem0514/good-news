@@ -1,6 +1,6 @@
-const router     = require('express').Router();
-const auth       = require('../lib/auth');
-const dbService  = require('../models/favorites');
+const router        = require('express').Router();
+const auth          = require('../lib/auth');
+const dbService     = require('../models/favorites');
 const newsService   = require('../services/news');
 
 

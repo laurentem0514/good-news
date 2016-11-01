@@ -3,7 +3,7 @@ const auth          = require('../lib/auth');
 const newsService   = require('../services/news');
 const favorites     = require('../models/favorites');
 
-//route for sources by category
+//route for sources by category - partial view for homepage
 router.get('/ajax', auth.authenticate, favorites.getFavorites, newsService.getSources, (req,res) =>{
  res.render('sources/sources', {
   sourcesByCategory: res.sourcesByCategory,
