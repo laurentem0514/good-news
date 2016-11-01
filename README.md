@@ -6,18 +6,18 @@ My approach to this was mainly to create something user-friendly. It was my firs
 
 
 Technologies Used:
-    * node.js
-    * Express
-    * MongoDB
-    * Node-Fetch
-    * News API
-    * Javascript/jQuery
-    * HTML/CSS
-    * Bootstrap
+* node.js
+* Express
+* MongoDB
+* Node-Fetch
+* News API
+* Javascript/jQuery
+* HTML/CSS
+* Bootstrap
     
 Wireframes - they helped me to imagine my project, but I ended up taking a different approach based on circumstances.
 
-![Landing Page](images/landing-page.png)
+![Landing Page](public/images/landing-page.png)
 ![Search Results](public/images/search-results.png)
 ![Favorites Page](public/images/favorites-page.png)
 
