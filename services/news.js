@@ -13,14 +13,11 @@ function getSources(req, res, next) {
   fetch(`https://newsapi.org/v1/sources?language=en&category=${req.query.category}`)
    .then (r => r.json())
    .then((result) => {
+
+    //if user has added source to favorites, added boolean to check if souce already exists in favorites
     res.sourcesByCategory = result.sources.map((source) => {
-       const model = {
-          isFavorite: favoritesIds.indexOf(source.id) > -1
-       };
-       for (let prop in source) {
-         model[prop] = source[prop];
-       }
-       return model;
+      source.isFavorite = favoritesIds.indexOf(source.id) > -1;
+      return source;
     });
     next();
   })
@@ -47,16 +44,9 @@ function getArticlesForSource(req, res, next) {
 //modified version of function to get articles from a favorited source
 function getArticlesForFavorites(req, res, next) {
   res.favoritesExtended = res.favorites.map((favorite) =>{
-     const fave = {};
-
-     for (prop in favorite){
-       fave[prop] = favorite[prop];
-     }
-
-     fave.articlesApiUrl = `${API_URL}source=${fave.id}&apiKey=${API_KEY}`;
-     fave.articlesUrl = `/sources/${fave.id}/articles`;
-
-     return fave;
+     favorite.articlesApiUrl = `${API_URL}source=${favorite.id}&apiKey=${API_KEY}`;
+     favorite.articlesUrl = `/sources/${favorite.id}/articles`;
+     return favorite;
   });
 
   next();

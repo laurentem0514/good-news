@@ -26,6 +26,7 @@ $(function() {
     }
   }
 
+//gets values from html to submit for favorites
   const saveFavorite = function(){
     const button = $(this);
     const container = button.parent();
@@ -34,7 +35,6 @@ $(function() {
     const logo = container.find('input[name=favorite\\[logo\\]]').val();
     const userId = container.find('input[name=favorite\\[userId\\]]').val();
 
-    if(id) {
       $.ajax({
          url: '/favorites',
          type: 'POST',
@@ -52,7 +52,6 @@ $(function() {
           container.find('.label').removeClass('hidden');
        }
       });
-    }
   }
 
   //this function loads 4 latest news articles for user's favorite sources
@@ -67,9 +66,11 @@ $(function() {
             for (let i = 0; i < articles.length;i++){
               let article = articles[i];
               let div = $('<div class="article"></div>');
-              div.append($('<h3>'+  article.title + '<h3>'));
-              div.append($('<img src="'+  article.urlToImage + '" alt="'+  article.title + '">'))
-              div.append($('<a href="' + article.url + '" target="_blank"> Read Full Article </a>' ))
+              div.append($('<img src="'+  article.urlToImage + '" alt="'+  article.title + '">'));
+              let containerDiv = $('<div class="article-container"></div>');
+              containerDiv.append($('<h3>'+  article.title + '<h3>'));
+              containerDiv.append($('<a href="' + article.url + '" target="_blank"> Read Full Article </a>' ));
+              div.append(containerDiv);
               $(favorite).find('.articles').append(div);
             }
           }
