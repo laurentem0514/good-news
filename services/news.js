@@ -42,6 +42,7 @@ function getArticlesForSource(req, res, next) {
 }
 
 //modified version of function to get articles from a favorited source
+//back-end is building the url for front-end call to get articles
 function getArticlesForFavorites(req, res, next) {
   res.favoritesExtended = res.favorites.map((favorite) =>{
      favorite.articlesApiUrl = `${API_URL}source=${favorite.id}&apiKey=${API_KEY}`;
